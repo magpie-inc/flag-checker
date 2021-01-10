@@ -26,11 +26,12 @@ jobs:
     - name: Build flag checker program  
       run: |
         chmod +x build.sh
+        echo ${{ steps.get_hash.outputs.HASH_VALUE }}
         ./build.sh ${{ steps.get_hash.outputs.HASH_VALUE }}
       
     - name: Upload build artifact
       uses: actions/upload-artifact@v2
       with:
         name: flagchecker
-        path: ../../bin/flagchecker
+        path: flagchecker
 
