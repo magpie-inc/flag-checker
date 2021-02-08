@@ -19,6 +19,8 @@ jobs:
 
     - name: Get hash 
       id: get_hash
+      env:
+        AUTH: ${{ secrets.FLAG_HASH }} 
       run: |
         chmod +x flaghash.sh
         echo "::set-output name=HASH_VALUE::$( ./flaghash.sh )"
