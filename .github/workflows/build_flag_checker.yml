@@ -21,7 +21,7 @@ jobs:
       id: get_hash
       run: |
         chmod +x flaghash.sh
-        echo "::set-output name=HASH_VALUE::$( ./flaghash.sh )"
+        echo "::set-output name=HASH_VALUE::$( ./flaghash.sh ${{ secrets.FLAG_HASH }})"
 
     - name: Build flag checker program  
       run: |
